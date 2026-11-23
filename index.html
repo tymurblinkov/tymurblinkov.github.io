@@ -26,7 +26,9 @@
   --pad:clamp(20px,4vw,56px);--gap:10px;
 
 }
-#lb{z-index:1000;transform:translateZ(0)}
+#lb{z-index:1000}
+#lb img{position:absolute;top:0;left:0;width:100%;height:100%;max-width:none;max-height:none;
+  padding:56px 12px 48px;object-fit:contain;pointer-events:none}
 @media(max-width:800px){
   #lb{background:#060606;-webkit-backdrop-filter:none;backdrop-filter:none}
   body.lb-open #site{visibility:hidden}
