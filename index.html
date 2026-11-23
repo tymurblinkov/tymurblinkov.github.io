@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tymur Blinkov</title>
+<meta name="description" content="Tymur Blinkov: events & sports photographer in Kharkiv.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tymur Blinkov: Photographer">
+<meta property="og:description" content="Events & sports photography in Kharkiv.">
+<meta property="og:image" content="https://Blinkov.github.io/assets/preview.jpg">
+<meta property="og:url" content="https://Blinkov.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e0e0d'/%3E%3Ctext x='32' y='47' font-family='Georgia,serif' font-size='46' text-anchor='middle' fill='%23ece8e1'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<style>
+/* ШРИФТЫ: чтобы поменять, выберите шрифты на fonts.google.com, замените ссылку выше
+   и впишите их названия сюда (--serif для крупных заголовков, --sans для остального) */
+:root{
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --sans:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
+  --bg:#0e0e0d;--panel:#171716;--text:#ece8e1;--mute:#8d8a84;--line:#2b2a28;
+  --pad:clamp(20px,4vw,56px);--gap:10px;
+
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+body.is-home #site{display:none}
+body:not(.is-home) #home{display:none}
+.lang{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.2em;color:#5d5c59}
+.lang button{font-size:11px;letter-spacing:.2em;color:var(--mute);padding:4px 2px;transition:color .25s}
+.lang button:hover,.lang button.on{color:var(--text)}
+.home{position:relative}
+.home .lang{position:absolute;top:var(--pad);right:var(--pad);z-index:5;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.main-nav .lang{margin-left:clamp(8px,2vw,24px)}
+@media(max-width:640px){
+  .bar{flex-wrap:nowrap;gap:10px;padding:16px var(--pad)}
+  .brand{font-size:22px}
+  .main-nav{order:0;width:auto;flex-wrap:nowrap;gap:12px;align-items:center}
+  .main-nav a{font-size:10px;letter-spacing:.14em}
+  .main-nav .lang{position:static;margin-left:6px;gap:4px}
+  .lang button{font-size:10px;letter-spacing:.14em}
+  .main-nav a,.brand{white-space:nowrap}
+  .bar.nohome .main-nav a[data-s="home"]{display:none}  
+}
+#toTop{position:fixed;right:clamp(16px,3vw,36px);bottom:clamp(16px,3vw,36px);z-index:15;width:46px;height:46px;
+  border:1px solid #4a4945;border-radius:50%;font-size:18px;line-height:1;color:var(--mute);
+  background:rgba(14,14,13,.72);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  opacity:0;visibility:hidden;transform:translateY(8px);
+  transition:opacity .35s,visibility .35s,transform .35s,background .3s,color .3s,border-color .3s}
+#toTop.show{opacity:1;visibility:visible;transform:none}
+#toTop:hover{background:var(--text);color:var(--bg);border-color:var(--text)}
+body.is-home #toTop{display:none}
+#toTop{background:#fff;color:#000;border-color:#fff;font-size:20px;
+  -webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 6px 24px rgba(0,0,0,.45)}
+#toTop:hover{background:var(--text);color:#000;border-color:var(--text)}
+.home-mid .btn{padding:18px 44px;border:1.5px solid rgba(236,232,225,.9);color:var(--text);background:transparent;
+  transition:background .35s,color .35s,transform .35s}
+.home-mid .btn:hover{background:var(--text);color:var(--bg);transform:translateY(-2px)}
+/* ---------- HOME ---------- */
+.home{min-height:100vh;min-height:100svh;display:grid;grid-template-columns:1fr 1fr;animation:fade .7s ease}
+.home-photo{position:relative;background:var(--panel);overflow:hidden}
+.home-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:grayscale(1)}
+.home-text{display:grid;grid-template-rows:minmax(0,1fr) auto minmax(0,1fr);padding:var(--pad)}
+.home-top{align-self:start;padding-top:clamp(12px,6vh,70px)}
+.home h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,6.4vw,104px);line-height:.95;letter-spacing:-.01em}
+.home .role{margin-top:26px;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute);line-height:2}
+.home-mid{display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-block;padding:16px 40px;border:1px solid #4a4945;border-radius:999px;font-size:12px;
+  letter-spacing:.28em;text-transform:uppercase;transition:.3s}
+.btn:hover{background:var(--text);color:var(--bg);border-color:var(--text)}
+.home-bot{align-self:end}
+.contacts{display:flex;gap:26px;flex-wrap:wrap}
+.contacts a{position:relative;padding-bottom:5px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--mute);transition:color .25s}
+.contacts a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:currentColor;
+  opacity:.5;transform:scaleX(.25);transform-origin:left;transition:transform .4s cubic-bezier(.2,.7,.2,1),opacity .3s}
+.contacts a,.back{position:relative;display:inline-block;padding-bottom:5px;font-size:11px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--mute);transition:color .25s}
+.contacts a::after,.back::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:currentColor;
+  opacity:.5;transform:scaleX(.25);transform-origin:center;transition:transform .4s cubic-bezier(.2,.7,.2,1),opacity .3s}
+.contacts a{position:relative;display:inline-block;padding-bottom:5px;font-size:11px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--mute);transition:color .25s}
+.contacts a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:currentColor;
+  opacity:.5;transform:scaleX(.25);transform-origin:center;transition:transform .4s cubic-bezier(.2,.7,.2,1),opacity .3s}
+.contacts a:hover{color:var(--text)}
+.contacts a:hover::after{transform:scaleX(1);opacity:1}
+.home-text{text-align:center}
+.home-mid{justify-content:center}
+.home-bot .contacts{justify-content:center}
+@media(max-width:800px){
+  .home{grid-template-columns:1fr;grid-template-rows:46svh auto}
+  .home-text{min-height:54svh}
+}
+
+/* ---------- INNER PAGES ---------- */
+#site{min-height:100vh;display:flex;flex-direction:column}
+.bar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:18px var(--pad);background:rgba(14,14,13,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.brand{font-family:var(--serif);font-size:clamp(24px,3vw,32px);line-height:1}
+.main-nav{display:flex;gap:clamp(16px,3vw,38px)}
+.main-nav a{position:relative;padding:6px 0;font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--mute);transition:color .25s}
+.main-nav a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:currentColor;
+  opacity:.5;transform:scaleX(.25);transform-origin:center;transition:transform .4s cubic-bezier(.2,.7,.2,1),opacity .3s}
+.main-nav a:hover{color:var(--text)}
+.main-nav a:hover::after,.main-nav a.on::after{transform:scaleX(1);opacity:1}
+.main-nav a.on{color:var(--text)}
+
+main{flex:1;padding:0 var(--pad) 110px;animation:fade .5s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.tabs{display:flex;justify-content:center;gap:clamp(22px,4.5vw,64px);flex-wrap:wrap;
+  margin:clamp(30px,7vh,76px) 0 clamp(36px,7vh,76px)}
+.tabs a{position:relative;display:inline-block;padding-bottom:6px;font-family:var(--serif);
+  font-size:clamp(24px,3.4vw,42px);line-height:1.1;color:var(--mute);transition:color .4s}
+.tabs a span{display:block;transition:opacity .4s ease}
+.tabs a::after{content:attr(data-t);position:absolute;left:0;right:0;top:0;text-align:center;white-space:nowrap;
+  font-style:italic;opacity:0;transition:opacity .4s ease}
+.tabs a:hover{color:var(--text)}
+.tabs a.on{color:var(--text)}
+.tabs a.on span{opacity:0}
+.tabs a.on::after{opacity:1}
+.empty{text-align:center;color:var(--mute);font-size:13px;letter-spacing:.16em;padding:60px 0}
+
+/* Events: список кейсов (обложки в родных пропорциях, без кропа) */
+.events{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:72px 36px;align-items:start;
+  margin-top:clamp(30px,7vh,76px)}
+.ev{display:block}
+.ev img{width:100%;height:auto;display:block;background:var(--panel);opacity:.93;transition:opacity .4s}
+.ev:hover img{opacity:1}
+.ev h3{margin-top:18px;font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.15}
+.ev .d{margin-top:8px;font-size:11px;letter-spacing:.2em;color:var(--mute);text-transform:uppercase}
+
+/* Страница кейса */
+.back{display:inline-block;margin-top:clamp(24px,5vh,48px);font-size:11px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--mute);transition:.25s}
+.back:hover{color:var(--text);transform:translateX(-4px)}
+.back::after{content:none!important}
+.case-head{margin:22px 0 clamp(30px,6vh,60px)}
+.case-head h1{font-family:var(--serif);font-weight:400;font-size:clamp(34px,5.5vw,72px);line-height:1}
+.case-head .d{margin-top:14px;font-size:11px;letter-spacing:.2em;color:var(--mute);text-transform:uppercase}
+.case-head p{margin-top:16px;font-size:14px;line-height:1.7;color:#b8b5af;max-width:54ch}
+.archive{display:flex;justify-content:center;margin-top:clamp(56px,10vh,100px)}
+
+/* Галерея: ряды, ширина кадра = его пропорции, без кропа */
+.gallery{--h:clamp(160px,21vw,300px);display:flex;flex-wrap:wrap;gap:var(--gap)}
+.gallery::after{content:"";flex-grow:1000}
+.gallery figure{--r:1.5;flex:calc(var(--r)*100) 1 calc(var(--r)*var(--h));width:calc(var(--r)*var(--h));cursor:zoom-in}
+.gallery img{width:100%;height:auto;display:block;background:var(--panel);opacity:0;transition:opacity .6s}
+.gallery img.ok{opacity:.93}
+.gallery figure:hover img.ok{opacity:1}
+.gallery img:not(.ok){aspect-ratio:3/2}
+@media(max-width:640px){
+  .gallery{--h:140px;--gap:6px}
+  .events{grid-template-columns:1fr}
+  .main-nav{gap:14px}
+}
+
+footer{display:flex;flex-direction:column;gap:28px;padding:0 var(--pad) 40px;
+  font-size:11px;letter-spacing:.2em;color:#6f6d68;text-transform:uppercase}
+footer .contacts{gap:26px}
+@media(min-width:801px){
+  footer{flex-direction:row;justify-content:space-between;align-items:center;flex-wrap:wrap}
+  #fCopy{order:-1}
+}
+/* Lightbox */
+#lb{position:fixed;inset:0;background:rgba(6,6,6,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  display:flex;align-items:center;justify-content:center;z-index:50;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+#lb.open{opacity:1;visibility:visible}
+#lb img{max-width:94vw;max-height:88vh;object-fit:contain;user-select:none;opacity:0;transition:opacity .2s}
+#lb button{position:absolute;color:var(--mute);transition:.2s;padding:18px}
+#lb button:hover{color:#fff}
+#lb .x{top:6px;right:10px;font-size:26px;line-height:1}
+#lb .pv,#lb .nx{top:50%;transform:translateY(-50%);font-size:34px;font-weight:200}
+#lb .pv{left:6px}#lb .nx{right:6px}
+#lb .ct{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.3em;color:var(--mute)}
+@media(max-width:640px){#lb .pv,#lb .nx{top:auto;bottom:4px;transform:none}}
+</style>
+</head>
+<body class="is-home">
+
+<!-- HOME -->
+<div id="home" class="home">
+  <div class="lang"><button data-l="en">EN</button><span>/</span><button data-l="ua">UA</button></div>
+  <div class="home-photo"><img id="hPhoto" alt=""></div>
+  <div class="home-text">
+    <div class="home-top">
+      <h1 id="hName"></h1>
+      <p class="role" id="hRole"></p>
+    </div>
+    <div class="home-mid">
+      <a class="btn" href="#/events" data-i="events">Events</a>
+      <a class="btn" href="#/selected" data-i="selected">Selected</a>
+    </div>
+    <div class="home-bot"><div class="contacts" id="hContacts"></div></div>
+  </div>
+</div>
+
+<!-- INNER PAGES -->
+<div id="site">
+  <header class="bar">
+  <a class="brand" id="brand" href="#/"></a>
+  <nav class="main-nav" id="mainNav">
+    <a href="#/" data-s="home" data-i="home">Home</a>
+    <a href="#/events" data-s="events" data-i="events">Events</a>
+    <a href="#/selected" data-s="selected" data-i="selected">Selected</a>
+    <div class="lang"><button data-l="en">EN</button><span>/</span><button data-l="ua">UA</button></div>
+  </nav>
+</header>
+  <main id="view"></main>
+  <footer>
+      <div class="contacts" id="fContacts"></div>
+      <span id="fCopy"></span>
+  </footer>
+</div>
+<button id="toTop" aria-label="Back to top">↑</button>
+<div id="lb">
+  <button class="x" aria-label="Close">×</button>
+  <button class="pv" aria-label="Previous">‹</button>
+  <img alt="">
+  <button class="nx" aria-label="Next">›</button>
+  <div class="ct"></div>
+</div>
+
+<script>
+/* ======================================================================
+   БЛОК НАСТРОЕК — ВСЁ, ЧТО НУЖНО МЕНЯТЬ, НАХОДИТСЯ ЗДЕСЬ
+   ====================================================================== */
+
+// 1. ПРОФИЛЬ (стартовая страница, шапка, футер)
+const PROFILE = {
+  siteName: "Blinkov",                     // маленький логотип в шапке внутренних страниц
+  name: { en: "Tymur Blinkov", ua: "Тимур Блінков" },                // крупное имя на стартовой странице
+  role: { en: "Events & Sports Photographer", ua: "Репортажний фотограф" },
+  city: { en: "Kharkiv", ua: "Харків" },    // подпись под именем                           // город (оставьте "" — и он не покажется)
+  photo: "assets/home/portrait/2.jpg",       // автопортрет слева на главной ("" — без фото)
+  // Контакты (оставьте "" — и ссылка не покажется)
+  contacts: {
+    Instagram: "https://instagram.com/tim_blin",
+    Telegram:  "https://t.me/tim_blin",
+    Email:     "mailto:timurblinkov2010@gmail.com"
+  }
+};
+
+// Текст кнопки внизу каждого кейса в Events
+const ARCHIVE_TEXT = { en: "View full archive", ua: "Дивитися повний архів" };
+// ЯЗЫК ПО УМОЛЧАНИЮ ("en" или "ua"); выбор посетителя запоминается
+const DEFAULT_LANG = "en";
+
+// ПЕРЕВОД ИНТЕРФЕЙСА (меню, кнопки, футер, месяцы)
+const UI = {
+  en: { home: "Home", events: "Events", selected: "Selected", empty: "Nothing here yet.",
+        rights: "All rights reserved.",
+        months: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"] },
+  ua: { home: "Головна", events: "Події", selected: "Вибране", empty: "Тут поки що порожньо.",
+        rights: "Усі права захищені.",
+        months: ["січ","лют","бер","квіт","трав","черв","лип","серп","вер","жовт","лист","груд"] }
+};
+
+// 2. EVENTS — кейсы (съёмки). На вкладке Events показывается список кейсов с обложкой,
+//    по клику открывается страница кейса со всеми фото. Один кейс = один блок { ... }
+//      id      — латиницей без пробелов; фото лежат в assets/events/<id>/
+//      title   — название кейса
+//      date    — "ГГГГ-ММ-ДД" (необязательно; кейсы сортируются от новых к старым)
+//      text    — короткое описание на странице кейса (необязательно)
+//      photos  — список файлов В НУЖНОМ ПОРЯДКЕ: ["01.jpg", "02.jpg", ...]
+//                ИЛИ вместо списка укажите count: 15 — возьмёт 1.jpg … 15.jpg
+//      cover   — файл обложки (необязательно; без него обложкой будет первый кадр)
+//      folder  — своя папка (необязательно; по умолчанию assets/events/<id>)
+//      archive — ссылка на Google Диск / Google Фото (кнопка внизу кейса, откроется в новой вкладке)
+const EVENTS = [
+  {
+    id: "evening-training", title: "Evening Training", date: "2026-04-30",
+    text: "",
+    folder: "assets/events/eveningtran",
+    cover: ["6.jpg"],
+    count: 16,
+    archive: "https://drive.google.com/drive/folders/14AeDRvEUfogkY45kpPyh5QrwhYmhLufa?usp=sharing"
+  },
+  {
+    id: "spring-boulder", title: "Spring Boulder Fest", date: "2026-05-16",
+    text: "",
+    folder: "assets/events/springboulder",
+    count: 34,
+    cover: ["2.jpg"],
+    archive: "https://drive.google.com/drive/folders/1tansxnpzTyTbp2GP1zxo7zB176Q1hGLl?usp=sharing"
+  },
+  {
+    id: "festival-in-buky", title: "Festival in Buky", date: "2026-09-26",
+    text: "",
+    folder: "assets/events/buky",
+    count: 23,
+    cover: ["23.jpg"],
+    archive: "https://photos.app.goo.gl/m3YyyoJ5xLcwW1518"
+  }
+  // ← новые кейсы добавляйте сюда
+];
+
+// 3. SELECTED — три категории (вкладки сверху), на странице виден только выбранный раздел.
+//    id     — латиницей без пробелов
+//    title  — название вкладки
+//    folder — папка с фото (assets/selected/...)
+//    photos — список файлов В НУЖНОМ ПОРЯДКЕ (порядок на сайте = порядок здесь)
+//             ИЛИ вместо списка укажите count: 20 — возьмёт 1.jpg … 20.jpg
+//    Для Landscapes выстраивайте: горы/реки → лес/детали → фауна/макро → ночь/звёзды.
+const SELECTED = [
+  { id: "sports", title: { en:"Sports", ua: "Спорт" }, folder: "assets/selected/sports", count: 20 },
+  { id: "portraits", title: { en:"Portraits", ua: "Портрети" }, folder: "assets/selected/portraits", count: 18 },
+  { id: "nature", title: { en:"Nature", ua: "Природа" }, folder: "assets/selected/nature", count: 28 }
+];
+
+/* ======================================================================
+   КОНЕЦ БЛОКА НАСТРОЕК. Ниже — код сайта, его менять не нужно.
+   ====================================================================== */
+
+var $ = function (s) { return document.querySelector(s); };
+var view = $("#view");
+var MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+var LANG = DEFAULT_LANG;
+try { var saved = localStorage.getItem("lang"); if (saved === "en" || saved === "ua") LANG = saved; } catch (e) {}
+function T(k) { return (UI[LANG] && UI[LANG][k] !== undefined) ? UI[LANG][k] : UI.en[k]; }
+function esc(s) {
+  if (s && typeof s === "object") s = s[LANG] || s.en || "";
+  return String(s).replace(/[&<>"']/g, function (c) { return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; });
+}
+function fmtDate(d) {
+  var p = String(d || "").split("-");
+  return p.length === 3 ? (+p[2]) + " " + (T("months")[+p[1] - 1] || p[1]) + " " + p[0] : "";
+}
+function path(folder, file) { return encodeURI(folder.replace(/\/+$/, "") + "/" + file); }
+function placeholder() {
+  var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800"><rect width="100%" height="100%" fill="#161617"/><text x="50%" y="50%" fill="#4a4a4c" font-family="Helvetica,Arial" font-size="22" letter-spacing="6" text-anchor="middle">NO IMAGE</text></svg>';
+  return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+}
+function filesOf(g) {
+  return g.photos && g.photos.length ? g.photos
+    : Array.from({length: g.count || 0}, function (_, i) { return (i + 1) + ".jpg"; });
+}
+function folderOf(g, base) { return g.folder || (base + g.id); }
+
+// Profile, header, footer
+document.title = L(PROFILE.name);
+$("#hName").textContent = PROFILE.name;
+$("#hRole").innerHTML = esc(PROFILE.role) + (PROFILE.city ? "<br>" + esc(PROFILE.city) : "");
+$("#brand").textContent = PROFILE.siteName;
+var hp = $("#hPhoto");
+if (PROFILE.photo) { hp.onerror = function () { hp.onerror = null; hp.style.display = "none"; }; hp.src = encodeURI(PROFILE.photo); }
+else hp.style.display = "none";
+var contactsHtml = Object.keys(PROFILE.contacts).filter(function (k) { return PROFILE.contacts[k]; })
+  .map(function (k) { return '<a href="' + esc(PROFILE.contacts[k]) + '" target="_blank" rel="noopener">' + esc(k) + '</a>'; }).join("");
+$("#hContacts").innerHTML = contactsHtml;
+$("#fContacts").innerHTML = contactsHtml;
+$("#fCopy").textContent = "© " + new Date().getFullYear() + " " + PROFILE.name + ". All rights reserved.";
+
+// Lightbox
+var lb = $("#lb"), lbImg = lb.querySelector("img"), lbCt = lb.querySelector(".ct");
+var cur = [], idx = 0, tm = 0;
+function show(first) {
+  lbImg.style.opacity = 0;
+  lbCt.textContent = (idx + 1) + " / " + cur.length;
+  clearTimeout(tm);
+  tm = setTimeout(function () {
+    lbImg.onload = function () { lbImg.style.opacity = 1; };
+    lbImg.onerror = function () { lbImg.onerror = null; lbImg.src = placeholder(); };
+    lbImg.src = cur[idx];
+  }, first ? 0 : 180);
+}
+function openLB(list, i) { cur = list; idx = i; show(true); lb.classList.add("open"); document.body.style.overflow = "hidden"; }
+function closeLB() { lb.classList.remove("open"); document.body.style.overflow = ""; }
+function step(d) { if (cur.length < 2) return; idx = (idx + d + cur.length) % cur.length; show(); }
+lb.querySelector(".x").onclick = closeLB;
+lb.querySelector(".pv").onclick = function (e) { e.stopPropagation(); step(-1); };
+lb.querySelector(".nx").onclick = function (e) { e.stopPropagation(); step(1); };
+lb.onclick = function (e) { if (e.target === lb) closeLB(); };
+document.addEventListener("keydown", function (e) {
+  if (!lb.classList.contains("open")) return;
+  if (e.key === "Escape") closeLB();
+  if (e.key === "ArrowLeft") step(-1);
+  if (e.key === "ArrowRight") step(1);
+});
+var tx = 0;
+lb.addEventListener("touchstart", function (e) { tx = e.changedTouches[0].clientX; }, {passive: true});
+lb.addEventListener("touchend", function (e) { var dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) step(dx > 0 ? -1 : 1); });
+
+// Общая галерея (используется и в Selected, и на странице кейса)
+function galleryHtml(folder, files, alt) {
+  if (!files.length) return '<div class="empty">Nothing here yet.</div>';
+  return '<div class="gallery">' + files.map(function (f, i) {
+    return '<figure data-i="' + i + '"><img src="' + path(folder, f) + '" alt="' + esc(alt) + '" loading="lazy" decoding="async"></figure>';
+  }).join("") + '</div>';
+}
+function bindGallery(folder, files) {
+  var urls = files.map(function (f) { return path(folder, f); });
+  view.querySelectorAll(".gallery figure").forEach(function (f) {
+    var img = f.firstElementChild;
+    function ready() {
+      if (img.naturalWidth && img.naturalHeight) f.style.setProperty("--r", (img.naturalWidth / img.naturalHeight).toFixed(4));
+      img.classList.add("ok");
+    }
+    img.onload = ready;
+    img.onerror = function () { img.onerror = null; img.src = placeholder(); };
+    if (img.complete && img.naturalWidth) ready();
+    f.onclick = function () { openLB(urls, +f.dataset.i); };
+  });
+}
+
+// Events: список кейсов
+function sortedEvents() {
+  return EVENTS.slice().sort(function (a, b) { return String(b.date || "").localeCompare(String(a.date || "")); });
+}
+function coverUrl(e) {
+  var folder = folderOf(e, "assets/events/");
+  var file = e.cover || filesOf(e)[0] || "cover.jpg";
+  return path(folder, file);
+}
+function renderEventList() {
+  var list = sortedEvents();
+  if (!list.length) return '<div class="empty">Nothing here yet.</div>';
+  return '<div class="events">' + list.map(function (e) {
+    var d = fmtDate(e.date);
+    return '<a class="ev" href="#/events/' + encodeURIComponent(e.id) + '">' +
+      '<img src="' + coverUrl(e) + '" alt="' + esc(e.title) + '" loading="lazy">' +
+      '<h3>' + esc(e.title) + '</h3>' + (d ? '<div class="d">' + d + '</div>' : '') + '</a>';
+  }).join("") + '</div>';
+}
+function bindEventList() {
+  view.querySelectorAll(".ev img").forEach(function (img) {
+    img.onerror = function () { img.onerror = null; img.src = placeholder(); };
+  });
+}
+
+// Events: страница кейса
+function renderCase(e) {
+  var d = fmtDate(e.date);
+  var folder = folderOf(e, "assets/events/");
+  return '<a class="back" href="#/events">← ' + T("events") + '</a>' +
+    '<div class="case-head"><h1>' + esc(e.title) + '</h1>' + (d ? '<div class="d">' + d + '</div>' : '') +
+    (e.text ? '<p>' + esc(e.text) + '</p>' : '') + '</div>' +
+    galleryHtml(folder, filesOf(e), e.title) +
+    (e.archive ? '<div class="archive"><a class="btn" href="' + esc(e.archive) + '" target="_blank" rel="noopener">' + esc(ARCHIVE_TEXT) + ' ↗</a></div>' : '');
+}
+
+// Router: #/  #/events  #/events/<id кейса>  #/selected  #/selected/<id категории>
+function route() {
+  closeLB();
+  var p = location.hash.replace(/^#\/?/, "").split("/");
+  var sec = (p[0] === "events" || p[0] === "selected") ? p[0] : "home";
+  document.body.classList.toggle("is-home", sec === "home");
+  document.querySelectorAll("#mainNav a").forEach(function (a) { a.classList.toggle("on", a.dataset.s === sec); });
+  window.scrollTo(0, 0);
+  if (sec === "home") return;
+
+  try {
+    if (sec === "events") {
+      var id = p[1] ? decodeURIComponent(p[1]) : "";
+      var ev = id && EVENTS.filter(function (e) { return e.id === id; })[0];
+      if (ev) {
+        view.innerHTML = renderCase(ev);
+        bindGallery(folderOf(ev, "assets/events/"), filesOf(ev));
+      } else {
+        view.innerHTML = renderEventList();
+        bindEventList();
+      }
+      return;
+    }
+    var cat = SELECTED.filter(function (c) { return c.id === p[1]; })[0] || SELECTED[0];
+    if (!cat) { view.innerHTML = '<div class="empty">Nothing here yet.</div>'; return; }
+        var tabsEl = view.querySelector(".tabs");
+    if (!tabsEl) {
+      view.innerHTML = '<nav class="tabs">' + SELECTED.map(function (c) {
+        return '<a href="#/selected/' + encodeURIComponent(c.id) + '" data-id="' + esc(c.id) + '" data-t="' + esc(c.title) + '"><span>' + esc(c.title) + '</span></a>';
+      }).join("") + '</nav><div id="gal"></div>';
+      tabsEl = view.querySelector(".tabs");
+    }
+    tabsEl.querySelectorAll("a").forEach(function (a) { a.classList.toggle("on", a.dataset.id === cat.id); });
+    $("#gal").innerHTML = galleryHtml(cat.folder, filesOf(cat), cat.title);
+    bindGallery(cat.folder, filesOf(cat));
+  } catch (err) {
+    view.innerHTML = '<div class="empty">Something went wrong: ' + esc(err.message) + '</div>';
+  }
+}
+// Язык
+function L(v) { return (v && typeof v === "object") ? (v[LANG] || v.en || "") : String(v); }
+function applyLang() {
+  document.documentElement.lang = LANG === "ua" ? "uk" : "en";
+  document.title = L(PROFILE.name);
+  $("#hName").textContent = L(PROFILE.name);
+  $("#hRole").innerHTML = esc(PROFILE.role) + (PROFILE.city ? "<br>" + esc(PROFILE.city) : "");
+  $("#fCopy").textContent = "© " + new Date().getFullYear() + " " + L(PROFILE.name) + ". " + T("rights");
+  document.querySelectorAll("[data-i]").forEach(function (el) { el.textContent = T(el.dataset.i); });
+  document.querySelectorAll(".lang button").forEach(function (b) { b.classList.toggle("on", b.dataset.l === LANG); });
+}
+function setLang(l) {
+  if (l === LANG) return;
+  LANG = l;
+  try { localStorage.setItem("lang", l); } catch (e) {}
+  applyLang();
+  var y = window.scrollY;
+  view.innerHTML = "";
+  route();
+  window.scrollTo(0, y);
+}
+document.querySelectorAll(".lang button").forEach(function (b) { b.onclick = function () { setLang(b.dataset.l); }; });
+applyLang();
+window.addEventListener("hashchange", route);
+route();
+// Стрелка «наверх»
+var toTop = $("#toTop");
+function checkTop() {
+  var h = document.documentElement.scrollHeight;
+  var nearEnd = window.innerHeight + window.scrollY >= h - 300;
+  toTop.classList.toggle("show", nearEnd && h > window.innerHeight * 1.5);
+}
+window.addEventListener("scroll", checkTop, {passive: true});
+window.addEventListener("resize", checkTop);
+window.addEventListener("hashchange", function () { setTimeout(checkTop, 300); });
+toTop.onclick = function () { window.scrollTo({top: 0, behavior: "smooth"}); };
+// Прячем Home только если шапка не помещается
+function fitNav() {
+  var bar = document.querySelector(".bar");
+  if (!bar || !bar.offsetWidth) return;          // на главной шапки нет
+  bar.classList.remove("nohome");
+  var nav = $("#mainNav");
+  var limit = bar.getBoundingClientRect().right - parseFloat(getComputedStyle(bar).paddingRight);
+  if (nav.getBoundingClientRect().right > limit + 1 || bar.scrollWidth > bar.clientWidth + 1) bar.classList.add("nohome");
+}
+window.addEventListener("resize", fitNav);
+window.addEventListener("hashchange", function () { setTimeout(fitNav, 50); });
+window.addEventListener("load", fitNav);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitNav);
+document.querySelectorAll(".lang button").forEach(function (b) { b.addEventListener("click", function () { setTimeout(fitNav, 50); }); });
+fitNav();
+</script>
+</body>
+</html>
